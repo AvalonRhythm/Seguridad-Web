@@ -28,4 +28,5 @@ CREATE TABLE animales(
   
   PRIMARY KEY (id),
   FOREIGN KEY (subidopor) references usuarios(usuario)
+  ON UPDATE CASCADE,
 );
