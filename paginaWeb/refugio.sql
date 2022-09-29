@@ -1,8 +1,8 @@
-CREATE DATABASE IF NOT EXISTS regufio;
+CREATE DATABASE IF NOT EXISTS refugio;
 
 USE refugio;
 
-CREATE TABLE refugio (
+CREATE TABLE usuarios(
   usuario VARCHAR(25) NOT NULL,
   contrasenia VARCHAR(50) NOT NULL,
   nombreapellidos VARCHAR (100),
@@ -24,9 +24,8 @@ CREATE TABLE animales(
   sexo CHAR(1) NOT NULL,
   descripcion LONGTEXT,
   subidopor VARCHAR(25) NOT NULL,
-  imagen IMAGE,
   
   PRIMARY KEY (id),
-  FOREIGN KEY (subidopor) references usuarios(usuario)
+  FOREIGN KEY (subidopor) REFERENCES usuarios(usuario)
   ON UPDATE CASCADE
 );
