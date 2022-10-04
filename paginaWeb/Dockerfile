@@ -1,8 +1,2 @@
-FROM ubuntu
-WORKDIR /webapp
-
-#COPIAR TODO
-COPY . .
-RUN 
-
-#CONTRUIR IMAGEN
+FROM php:7.2.2-apache
+RUN docker-php-ext-install mysqli
