@@ -1,0 +1,8 @@
+FROM ubuntu
+WORKDIR /webapp
+
+#COPIAR TODO
+COPY . .
+RUN 
+
+#CONTRUIR IMAGEN
