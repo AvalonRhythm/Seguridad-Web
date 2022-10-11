@@ -1000,11 +1000,6 @@ a:focus {
     left: 1px;
 }
 
-.sidebar .category-widget ul li span {
-    display: inline-block;
-    float: right;
-}
-
 .sidebar .sidebar-widget .tag-widget {
     position: relative;
     margin: -5px -5px;
@@ -1269,3 +1264,8 @@ footer > p > a {
     color: white;
     font-weight: bold;
 }
+
+/*******************************/
+/********* Animal List *********/
+/*******************************/
+
