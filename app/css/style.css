@@ -154,13 +154,14 @@ a:focus {
     top: 0;
     left: 0;
     z-index: 3;
-    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
 }
 
 .top-bar .top-bar-left {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    color: #C57B57;
 }
 
 .top-bar .top-bar-right {
@@ -177,7 +178,7 @@ a:focus {
     height: 45px;
     padding: 0 10px;
     text-align: center;
-    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-left: 1px solid rgba(255, 255, 255, 0);
 }
 
 .top-bar .text:last-child {
@@ -191,7 +192,7 @@ a:focus {
 }
 
 .top-bar .text p {
-    color: #ffffff;
+    color: #C57B57;
     font-size: 16px;
     font-weight: 500;
     margin: 0;
@@ -1233,7 +1234,7 @@ a:focus {
 }
 
 .volunteer .volunteer-content .section-header {
-    margin-bottom: 30px;
+    margin-bottom: 100px;
 }
 
 .volunteer .volunteer-content .section-header h2 {
