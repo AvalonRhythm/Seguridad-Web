@@ -99,7 +99,7 @@
             }
         }
         
-        /*
+        
         // VALIDANDO CONTRASEÑA
         if(empty(trim($_POST["password"]))){
             $password_err = "Por favor, ingrese una contraseña";
@@ -108,29 +108,30 @@
         } else{
             $password = trim($_POST["password"]);
         }
-        */
         
+
         // COMPROBANDO LOS ERRORES DE ENTRADA ANTES DE INSERTAR LOS DATOS EN LA BASE DE DATOS
         if(empty($username_err) && empty($email_err) && empty($password_err) && empty($dni_err)){
             
             $sql = "INSERT INTO usuarios (usuario, contrasenia, nombreapellidos, DNI, telefono, fechanacimiento, email) VALUES (?, ?, ?, ?, ?, ?, ?)";
             
             if($stmt = mysqli_prepare($conexion, $sql)){
-                mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password, $param_name, $param_DNI, $param_telefono, $param_fechaNac, $param_email);
+                mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_password, $param_name, $param_DNI, $param_telefono, $param_fechaNac, $param_email);
                 
+
                 // ESTABLECIENDO PARAMETRO
                 $param_username = $username;
                 $param_password = $password;
-                $param_name = $name;
+                $param_name = trim($_POST["name"]);
                 $param_DNI = $dni;
-                $param_telefono = $telefono;
-                $param_fechaNac = $fechaNac;
+                $param_telefono = intval(trim($_POST["phone"]));
+                $param_fechaNac = date("Y-m-d", strtotime(trim($_POST["date"])));
                 $param_email = $email;
                 #$param_password = password_hash($password, PASSWORD_DEFAULT); // ENCRIPTANDO CONTRASEÑA
                 
                 
                 if(mysqli_stmt_execute($stmt)){
-                    header("location: index.php");
+                    header("location: http://localhost:81/index.php");
                 }else{
                     echo "Algo Salio mal, intentalo despues";
                 }
