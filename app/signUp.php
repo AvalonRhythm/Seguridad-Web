@@ -6,7 +6,10 @@
 <html lang="en">
 
     <head>
-        <title>Register</title>
+        <title>NuevaVida - Pagina de Registro</title>
+        
+		<!-- Favicon -->
+        <link href="img/icono.png" rel="icon">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">

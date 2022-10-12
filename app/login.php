@@ -5,7 +5,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Login</title>
+        <title>NuevaVida - Pagina de login</title>
+        
+		<!-- Favicon -->
+        <link href="img/icono.png" rel="icon">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
