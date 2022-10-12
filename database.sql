@@ -1,7 +1,3 @@
-CREATE DATABASE IF NOT EXISTS refugio;
-
-USE refugio;
-
 CREATE TABLE usuarios(
   usuario VARCHAR(25) NOT NULL,
   contrasenia VARCHAR(50) NOT NULL,
