@@ -46,8 +46,11 @@
                 <input class="field_class" type="text" name="dni" placeholder="11111111-Z">
                 <span class="msg-error"><?php echo $dni_err; ?></span>
                 <label>Fecha de nacimiento</label>
-                <input class="field_class" type="text" name="date" placeholder="aaaa-mm-dd" autofocus>
+                <input class="field_class" type="text" name="date" placeholder="aaaa-mm-dd">
                 <span class="msg-error"><?php echo $username_err; ?></span>
+                <label>Teléfono</label>
+                <input class="field_class" type="text" name="phone" placeholder="123456789">
+                <span class="msg-error"><?php echo $phone_err; ?></span>
                 <label>Contraseña</label>
                 <input class="field_class" type="password" name="password" placeholder="Introduzca su contraseña">
                 <span class="msg-error"> <?php echo $password_err; ?></span>
