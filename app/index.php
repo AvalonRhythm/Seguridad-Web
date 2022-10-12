@@ -3,7 +3,7 @@
     session_start();
 
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
+    header("location: http://localhost:81/login.php");
     exit;
 }
 
@@ -55,10 +55,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     <div class="col-md-4">
                         <div class="top-bar-right">
                             <div class="text">
-                                <a href="login.php"><body> Iniciar Sesión </body></i></a>
+                                <a href="php/logoutCode.php"><body> Cerrar Sesión </body></i></a>
                             </div>
                             <div>
-                                <a href="signUp.php"><body> Registrarse </body></i></a>
+                                <a href="signUp.php"><body> Registrate </body></i></a>
                             </div>
                         
                     </div>
@@ -70,14 +70,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="index.html" class="navbar-brand">NuevaVida</a>
+                <a href="index.php" class="navbar-brand">NuevaVida</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="index.html" class="nav-item nav-link active">Página Principal</a>
-                        <a href="listaAdopcion.html" class="nav-item nav-link">Lista de Adopción</a>
+                        <a href="index.php" class="nav-item nav-link active">Página Principal</a>
+                        <a href="listaAdopcion.php" class="nav-item nav-link">Lista de Adopción</a>
                     </div>
                 </div>
             </div>
@@ -343,8 +343,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         </div>
                     <div class="col-lg-5">
                         <div>
-                            <form action="listaAdopcion.html">
-                                <button class="btn btn-custom" href="listaAdopcion.html">Adopta ahora</button>
+                            <form action="listaAdopcion.php">
+                                <button class="btn btn-custom" href="listaAdopcion.php">Adopta ahora</button>
                                 
                             </form>
                         </div>

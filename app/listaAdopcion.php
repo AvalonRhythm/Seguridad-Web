@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>NuevaVida - Adopta a un animal</title>
+        <title>HELPZ - Free Charity Website Template</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Adopcion de animales NuevaVida" name="keywords">
-        <meta content="Adopcion de animales NuevaVida" name="description">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
 
         <!-- Favicon -->
-        <link href="img/icono.png" rel="icon">
+        <link href="img/favicon.ico" rel="icon">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
@@ -33,21 +33,21 @@
                         <div class="top-bar-left">
                             <div class="text">
                                 <i class="fa fa-phone-alt"></i>
-                                <p>+34 123 45 56 78</p>
+                                <p>+123 456 7890</p>
                             </div>
                             <div class="text">
                                 <i class="fa fa-envelope"></i>
-                                <p>adopciones@nuevavida.com</p>
+                                <p>info@example.com</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="top-bar-right">
                             <div class="text">
-                                <a href="login.html"><body> Iniciar Sesión </body></i></a>
+                                <a href="php/logoutCode.php"><body> Cerrar Sesión </body></i></a>
                             </div>
                             <div>
-                                <a href="signUp.html"><body> Registrarse </body></i></a>
+                                <a href="signUp.php"><body> Registrarse </body></i></a>
                             </div>
                         
                     </div>
@@ -59,15 +59,15 @@
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="index.html" class="navbar-brand">NuevaVida</a>
+                <a href="index.php" class="navbar-brand">Helpz</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="index.html" class="nav-item nav-link active">Página Principal</a>
-                        <a href="listaAdopcion.html" class="nav-item nav-link">Lista de Adopción</a>
+                        <a href="index.php" class="nav-item nav-link">Página Principal</a>
+                        <a href="listaAdopcion.php" class="nav-item nav-link active">Lista de adopcion</a>
                     </div>
                 </div>
             </div>
@@ -80,11 +80,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Lista de adopciones</h2>
+                        <h2>About Us</h2>
                     </div>
                     <div class="col-12">
                         <a href="">Página Principal</a>
-                        <a href="">Sobre nosotros</a>
+                        <a href="">About Us</a>
                     </div>
                 </div>
             </div>

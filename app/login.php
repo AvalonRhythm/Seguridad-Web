@@ -1,5 +1,5 @@
 <?php
-    include_once "php/loginCode.php";
+    require_once("php/loginCode.php");
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@
             <div class="for_div">
                 <label>Usuario</label>
                 <input class="field_class" type="text" name="user" placeholder="Introduzca su usuario" autofocus>
-                <span class="msg-error"><?php echo $email_err; ?></span>
+                <span class="msg-error"><?php echo $user_err; ?></span>
                 <label>Contraseña</label>
                 <input class="field_class "type="password" name="password" placeholder="Introduzca su contraseña">
                 <span class="msg-error"><?php echo $password_err; ?></span>

@@ -1,5 +1,5 @@
 <?php    
-    include_once 'php/signUpCode.php';
+    require_once('php/signUpCode.php');
 ?>
 
 <!DOCTYPE html>
@@ -37,8 +37,17 @@
                 <input class="field_class" type="text" name="username" placeholder="Introduzca su usuario" autofocus>
                 <span class="msg-error"><?php echo $username_err; ?></span>
                 <label>Email</label>
-                <input class="field_class" type="text" name="email" placeholder="Introduzca su correo electronico">
+                <input class="field_class" type="text" name="email" placeholder="ejemplo@servidor.extension">
                 <span class="msg-error"> <?php echo $email_err; ?></span>
+                <label>Nombre y Apellidos</label>
+                <input class="field_class" type="text" name="name" placeholder="Introduzca su nombre y apellidos">
+                <span class="msg-error"><?php echo $name_err; ?></span>
+                <label>DNI</label>
+                <input class="field_class" type="text" name="dni" placeholder="11111111-Z">
+                <span class="msg-error"><?php echo $dni_err; ?></span>
+                <label>Fecha de nacimiento</label>
+                <input class="field_class" type="text" name="date" placeholder="aaaa-mm-dd" autofocus>
+                <span class="msg-error"><?php echo $username_err; ?></span>
                 <label>Contraseña</label>
                 <input class="field_class" type="password" name="password" placeholder="Introduzca su contraseña">
                 <span class="msg-error"> <?php echo $password_err; ?></span>

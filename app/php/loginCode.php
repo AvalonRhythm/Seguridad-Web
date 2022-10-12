@@ -1,46 +1,81 @@
 <?php
-session_start();
 
-include_once("php/BDConnection.php");
+    //INICIALIZAR LA SESION
+    session_start();
 
-
-function user_exist($usuario, $contrasena){
-    global $conexion;
-
-    $select_psw = "SELECT contrasenia FROM USUARIOS WHERE usuario= '$usuario'";
-    $psw = mysqli_query($conexion, $select_psw);
-
-    if($psw == $contrasena){
-        return true;
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        header("location: index.php");
+        exit;
     }
-    else {
-        return false;
+
+require_once("php/BDConnection.php");
+
+$user = "";
+$password = "";
+
+$user_err = "";
+$password_err = "";
+
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+    
+    if(empty(trim($_POST["user"]))){
+        $user_err = "Por favor, ingrese el nombre de usuario";
+    }else{
+        $user = trim($_POST["user"]);
     }
-}
-
-
-if(isset($_POST[""] && !empty($_POST["login_txt"]) && !empty($_POST["password_txt"] {
     
-    $usuario_introducido = mysqli_real_escape_string($conexion, $_POST["login_txt"]);
-    $contrasena_introducida = mysqli_real_escape_string($conexion, $_POST["password_txt"]);
-    
-    
-    //Comprobamos que exista el usuario con esa contrasena
-    if(!existe_Usuario($usuario_introducido, $contrasena_introducida))
-    {
-
-        echo "El usuario no existe";
+    if(empty(trim($_POST["password"]))){
+        $password_err = "Por favor, ingrese una contraseña";
+    }else{
+        $password = trim($_POST["password"]);
     }
-    //Si el usuario existe
-    else
-    {
-        if(isset($usuario_introducido))
-        {
-            $_SESSION['usuario'] = $usuario_introducido;
-            header("location: index.php");
-        }
+    
+    
+    
+
+    //VALIDAR CREDENCIALES
+    if(empty($user_err) && empty($password_err)){
         
-    }    
-
+        $sql = "SELECT contrasenia FROM usuarios WHERE usuario = ?";
+        
+        if($stmt = mysqli_prepare($conexion, $sql)){
+            
+            mysqli_stmt_bind_param($stmt, "s", $param_user);
+            
+            $param_user = $user;
+            
+            if(mysqli_stmt_execute($stmt)){
+                mysqli_stmt_store_result($stmt);
+            }
+            
+            if(mysqli_stmt_num_rows($stmt) == 1){
+                mysqli_stmt_bind_result($stmt, $contrasenia);
+                if(mysqli_stmt_fetch($stmt)){
+                    //if(password_verify($password, $hashed_password)){
+                    if($password == $contrasenia){
+                        session_start();
+                        
+                        // ALMACENAR DATOS EN VARABLES DE SESION
+                        $_SESSION["loggedin"] = true;
+                        $_SESSION["user"] = $user;
+                        
+                        header("location: http://localhost:81/index.php");
+                    }else{
+                        $password_err = "La contraseña que has introducido no es valida";
+                    }
+                    
+                } 
+            }else{
+                    $user_err = "No se ha encontrado ninguna cuenta con ese usuario";
+                }
+            
+        }else{
+                    echo "UPS! algo salio mal, intentalo mas tarde";
+                }
+    }
+    
+    mysqli_close($conexion);
+    
 }
+
 ?>
