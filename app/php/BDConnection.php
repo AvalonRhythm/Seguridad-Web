@@ -1,4 +1,3 @@
-
 <?php
 
     #Nos conectamos a la base de datos
