@@ -1,3 +1,8 @@
+<?php
+include("php/showDatabase.php");
+include("php/addAnimalCode.php");
+include("php/removeCode.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -102,5 +107,148 @@
             </ul>
         </header>
 
+        <body>
+                    <div class="container">
+            <div class="row">
+            <div class="col-sm-8">
+                <div class="table-responsive">
+                <table class="table table-bordered">
+                <thead><tr>
+                    <th>Nombre</th>
+                    <th>Especie</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Sexo</th>
+                    <th>Descripción</th>
+                    <th>Subido Por</th>
+                </thead>
+                <tbody>
+            <?php
+                if(is_array($fetchData)){      
+                foreach($fetchData as $data){
+                ?>
+                <tr>
+                <td><?php echo $data['nombre']??''; ?></td>
+                <td><?php echo $data['especie']??''; ?></td>
+                <td><?php echo $data['raza']??''; ?></td>
+                <td><?php echo $data['edad']??''; ?></td>
+                <td><?php echo $data['sexo']??''; ?></td>
+                <td><?php echo $data['descripcion']??''; ?></td>
+                <td><?php echo $data['subidopor']??''; ?></td>  
+                </tr>
+                <?php
+                }}else{ ?>
+                <tr>
+                    <td colspan="8">
+                <?php echo $fetchData; ?>
+            </td>
+                <tr>
+                <?php
+                }?>
+                </tbody>
+                </table>
+            </div>
+            </div>
+            </div>
+            </div>
+        </body>
+
+
+        <header class="header">
+            <ul>
+                <li>
+                    <div class= "header">
+                        <em><h1>AÑADIR UN ANIMAL</h1></em>
+                    </div>  
+                </li>
+            </ul>
+        </header>
+        
+        <body>
+            <div class="container">
+            <div class="row">
+            <div class="col-sm-4">
+                <p><?php echo !empty($result)? $result:''; ?></p>
+                <!--=================HTML Form=======================-->
+                <form method="post" >
+                    <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre" name="nombre">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Especie" name="especie">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Raza" name="raza">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Edad" name="edad">
+                </div>
+                
+                <div class="form-group">
+                <div class="form-check-inline">
+                    <input type="radio" class="form-check-input" name="sexo" value="M">Macho
+                </div>
+                <div class="form-check-inline">
+                    <input type="radio" class="form-check-input" name="sexo" value="F">Hembra
+                </div> 
+                </div>
+                
+                <div class="form-group">
+                <textarea class="form-control" name="descripcion" placeholder="Descripción"></textarea>
+                </div>
+            
+            <button type="submit"  name="save" class="btn btn-primary">Save</button>
+            </form>
+                <!--======================== HTML Form============================ -->
+            </div>
+            <div class="col-sm-8">
+            
+            </div>
+            </div>
+            </div>
+        </body>
+
+
+        <header class="header">
+            <ul>
+                <li>
+                    <div class= "header">
+                        <em><h1>ADOPTAR UN ANIMAL</h1></em>
+                    </div>  
+                </li>
+            </ul>
+        </header>
+
+        <body>
+            <form method="POST">
+                <label>Elige un animal</label>
+                <select name="Animal">
+                    <?php
+                        // use a while loop to fetch data
+                        // from the $all_categories variable
+                        // and individually display as an option
+                        while ($category = mysqli_fetch_array(
+                                $all_categories,MYSQLI_ASSOC)):;
+                    ?>
+                        <option value="<?php echo $category["id"];
+                            // The value we usually set is the primary key
+                        ?>">
+                            <?php echo $category["nombre"];
+                                // To show the category name to the user
+                            ?>
+                        </option>
+                    <?php
+                        endwhile;
+                        // While loop must be terminated
+                    ?>
+                </select>
+                <br>
+                <input type="submit" value="submit" name="submit">
+            </form>
+            <br>
+        </body>
 
 </html>
