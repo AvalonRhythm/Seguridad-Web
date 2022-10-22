@@ -2,33 +2,30 @@
 require_once("php/BDConnection.php");
 require_once("php/addAnimalCode.php");
 extract($_POST);
-#$e=$editar.''.$sn;
-if(isset($editar1)){
-    echo $data['nombre']??'';
+if(isset($editar)){
 $inputData = [
-'nombre' => validate($nombre) ?? "",
-'especie'   => validate($especie) ?? "",
-'raza'    => validate($raza) ?? "",
-'edad'   => validate($edad) ?? "",
-'sexo'  => validate($sexo) ?? "",
-'descripcion'     => validate($descripcion) ?? "",
+'nombre' => validate($nombre2) ?? "",
+'especie'   => validate($especie2) ?? "",
+'raza'    => validate($raza2) ?? "",
+'edad'   => validate($edad2) ?? "",
+'sexo'  => validate($sexo2) ?? "",
+'descripcion'     => validate($descripcion2) ?? "",
 ###'subidopor'    => validate($useradd)?? ""
 ];
 $tableName= "animales";
-echo $sn;
 $db = $conexion;
 $result= edit_data($db, $tableName, $inputData);
 }
 function edit_data($db, $tableName, $inputData){
- $data = implode(" ",$inputData);
+  $data = implode(" ",$inputData);
 if(empty($db)){
  $msg= "Database connection error";
 }elseif(empty($tableName)){
   $msg= "Table Name is empty";
-#}elseif(trim( $data ) == ""){
- # $msg= "Empty Data not allowed to insert";
+}elseif(trim( $data ) == ""){
+  $msg= "Empty Data not allowed to insert";
 }else{
-    $query="UPDATE ".$tableName." SET nombre='".validate($nombre1)??""."' where id='".$data['id']??''."';";
+    $query="UPDATE animales SET nombre='".$nombre2."' where id='".$_POST['eleccion']."'";
     echo $query;
     $execute= $db->query($query);
    if($execute=== true){

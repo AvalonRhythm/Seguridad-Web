@@ -122,7 +122,6 @@ include("php/editAnimalCode.php");
                     <th>Sexo</th>
                     <th>Descripción</th>
                     <th>Subido Por</th>
-                    <th>Editar</th>
                 </thead>
                 <tbody>
             <?php
@@ -135,61 +134,12 @@ include("php/editAnimalCode.php");
                 <td><?php echo $data['edad']??''; ?></td>
                 <td><?php echo $data['sexo']??''; ?></td>
                 <td><?php echo $data['descripcion']??''; ?></td>
-                <td><?php echo $data['id']??''; ?></td>
-                <td>
-                    <div class="container">
-                    <div class="row">
-                    <div id=<?php echo $data['id'] ?>>
-                    <div class="col-sm-20">
-                        <?php echo $sn ?>
-                        <!--=================HTML Form=======================-->
-                        <form method="post" >
-                            <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Nombre" name="nombre<?php echo $data['id'] ?>">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Especie" name="especie<?php echo $data['id'] ?>">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Raza" name="raza<?php echo $data['id'] ?>">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Edad" name="edad<?php echo $data['id'] ?>">
-                        </div>
-                        
-                        <div class="form-group">
-                        <div class="form-check-inline">
-                            <input type="radio" class="form-check-input" name="sexo<?php echo $data['id'] ?>" value="M">Macho
-                        </div>
-                        <div class="form-check-inline">
-                            <input type="radio" class="form-check-input" name="sexo<?php echo $data['id'] ?>" value="F">Hembra
-                        </div> 
-                        </div>
-                        
-                        <div class="form-group">
-                        <textarea class="form-control" name="descripcion<?php echo $data['id'] ?>" placeholder="Descripción"></textarea>
-                        </div>
-                    
-                    <button type="submit"  name="editar<?php echo $data['id'] ?>" class="btn btn-primary">Editar</button>
-
-                    </form>
-                        <!--======================== HTML Form============================ -->
-                    </div>
-                    <div class="col-sm-10">
-                    
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                </td>  
+                <td><?php echo $data['subidopor']??''; ?></td>
                 </tr>
                 <?php
                 }}else{ ?>
                 <tr>
-                    <td colspan="8">
+                    <td colspan="7">
                 <?php echo $fetchData; ?>
             </td>
                 <tr>
@@ -202,10 +152,6 @@ include("php/editAnimalCode.php");
             </div>
             </div>
         </body>
-
-        
-
-
 
         <header class="header">
             <ul>
@@ -263,6 +209,98 @@ include("php/editAnimalCode.php");
             </div>
             </div>
         </body>
+
+
+        <header class="header">
+            <ul>
+                <li>
+                    <div class= "header">
+                        <em><h1>EDITAR UN ANIMAL</h1></em>
+                    </div>  
+                </li>
+            </ul>
+        </header>
+
+        <body>
+            <div class="container">
+            <div class="row">
+            <div class="col-sm-4">
+                <p><?php echo !empty($result)? $result:''; ?></p>
+                <!--=================HTML Form=======================-->
+                <form method="post" >
+                <div class="form-group">
+                    <select name="eleccion">
+                        <?php
+                            // use a while loop to fetch data
+                            // from the $all_categories variable
+                            // and individually display as an option
+                            while ($category = mysqli_fetch_array(
+                                    $all_categories,MYSQLI_ASSOC)):;
+                        ?>
+                            <option value="<?php echo $category['id'];
+                                // The value we usually set is the primary key
+                            ?>">
+                                <?php echo $category['nombre'];
+                                    // To show the category name to the user
+                                ?>
+                            </option>
+                        <?php
+                            endwhile;
+                            // While loop must be terminated
+                        ?>
+                    </select>
+                </div>
+
+                    <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre" name="nombre2">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Especie" name="especie2">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Raza" name="raza2">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Edad" name="edad2">
+                </div>
+                
+                <div class="form-group">
+                <div class="form-check-inline">
+                    <input type="radio" class="form-check-input" name="sexo2" value="M">Macho
+                </div>
+                <div class="form-check-inline">
+                    <input type="radio" class="form-check-input" name="sexo2" value="F">Hembra
+                </div> 
+                </div>
+                
+                <div class="form-group">
+                <textarea class="form-control" name="descripcion2" placeholder="Descripción"></textarea>
+                </div>
+            
+            <button type="submit"  name="editar" class="btn btn-primary">Editar</button>
+            </form>
+                <!--======================== HTML Form============================ -->
+            </div>
+            <div class="col-sm-8">
+            
+            </div>
+            </div>
+            </div>
+        </body>
+
+        <header class="header">
+            <ul>
+                <li>
+                    <div class= "header">
+                        <em><h1>ELIMINAR UN ANIMAL</h1></em>
+                    </div>  
+                </li>
+            </ul>
+        </header>
+
 
         <body>
             <form method="POST">
