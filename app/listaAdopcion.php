@@ -123,7 +123,6 @@ include("php/editAnimalCode.php");
                     <th>Descripción</th>
                     <th>Subido Por</th>
                     <th>Editar</th>
-                    <th>Adoptar</th>
                 </thead>
                 <tbody>
             <?php
@@ -186,7 +185,6 @@ include("php/editAnimalCode.php");
                     </div>
                     </div>
                 </td>  
-                <td><a href='php/removeCode.php?did="<?php echo $data['id']??'' ?>"'>Adoptar</a></td>
                 </tr>
                 <?php
                 }}else{ ?>
