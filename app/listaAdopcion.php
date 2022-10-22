@@ -140,59 +140,58 @@ include("php/editAnimalCode.php");
                 <td><?php echo $data['descripcion']??''; ?></td>
                 <td><?php echo $data['subidopor']??''; ?></td>
                 <td>
+                    <div class="container">
+                    <div class="row">
+                    <div id=<?php echo $sn ?>>
+                    <div class="col-sm-20">
+                        <p><?php echo !empty($result)? $result:''; ?></p>
+                        <!--=================HTML Form=======================-->
+                        <form method="post" >
+                            <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nombre" name="nombre<?php echo $sn ?>">
+                        </div>
 
-            <div class="container">
-            <div class="row">
-            <div id=<?php echo $sn ?>>
-            <div class="col-sm-20">
-                <p><?php echo !empty($result)? $result:''; ?></p>
-                <!--=================HTML Form=======================-->
-                <?php echo $data['nombre']??''; ?>
-                <form method="post" >
-                    <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nombre" name="nombre<?php echo $sn ?>">
-                </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Especie" name="especie<?php echo $sn ?>">
+                        </div>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Especie" name="especie<?php echo $sn ?>">
-                </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Raza" name="raza<?php echo $sn ?>">
+                        </div>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Raza" name="raza<?php echo $sn ?>">
-                </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Edad" name="edad<?php echo $sn ?>">
+                        </div>
+                        
+                        <div class="form-group">
+                        <div class="form-check-inline">
+                            <input type="radio" class="form-check-input" name="sexo<?php echo $sn ?>" value="M">Macho
+                        </div>
+                        <div class="form-check-inline">
+                            <input type="radio" class="form-check-input" name="sexo<?php echo $sn ?>" value="F">Hembra
+                        </div> 
+                        </div>
+                        
+                        <div class="form-group">
+                        <textarea class="form-control" name="descripcion<?php echo $sn ?>" placeholder="Descripción"></textarea>
+                        </div>
+                    
+                    <button type="submit"  name="editar<?php echo $sn ?>" class="btn btn-primary">Editar</button>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Edad" name="edad<?php echo $sn ?>">
-                </div>
-                
-                <div class="form-group">
-                <div class="form-check-inline">
-                    <input type="radio" class="form-check-input" name="sexo<?php echo $sn ?>" value="M">Macho
-                </div>
-                <div class="form-check-inline">
-                    <input type="radio" class="form-check-input" name="sexo<?php echo $sn ?>" value="F">Hembra
-                </div> 
-                </div>
-                
-                <div class="form-group">
-                <textarea class="form-control" name="descripcion<?php echo $sn ?>" placeholder="Descripción"></textarea>
-                </div>
-            
-            <button type="submit"  name="editar<?php echo $sn ?>" class="btn btn-primary">Editar</button>
-
-            <?php $sn++; ?>
-            </form>
-                <!--======================== HTML Form============================ -->
-            </div>
-            <div class="col-sm-10">
-            
-            </div>
-            </div>
-            </div>
-            </div>
-
+                    <?php $sn++; ?>
+                    </form>
+                        <!--======================== HTML Form============================ -->
+                    </div>
+                    <div class="col-sm-10">
+                    
+                    </div>
+                    </div>
+                    </div>
+                    </div>
                 </td>  
+                <td><button type="submit"  name="adoptar<?php echo $sn ?>" class="btn btn-primary">Adoptar</button></td>
                 </tr>
+
                 <?php
                 }}else{ ?>
                 <tr>
@@ -271,44 +270,5 @@ include("php/editAnimalCode.php");
             </div>
         </body>
 
-
-        <header class="header">
-            <ul>
-                <li>
-                    <div class= "header">
-                        <em><h1>ADOPTAR UN ANIMAL</h1></em>
-                    </div>  
-                </li>
-            </ul>
-        </header>
-
-        <body>
-            <form method="POST">
-                <label>Elige un animal</label>
-                <select name="Animal">
-                    <?php
-                        // use a while loop to fetch data
-                        // from the $all_categories variable
-                        // and individually display as an option
-                        while ($category = mysqli_fetch_array(
-                                $all_categories,MYSQLI_ASSOC)):;
-                    ?>
-                        <option value="<?php echo $category["id"];
-                            // The value we usually set is the primary key
-                        ?>">
-                            <?php echo $category["nombre"];
-                                // To show the category name to the user
-                            ?>
-                        </option>
-                    <?php
-                        endwhile;
-                        // While loop must be terminated
-                    ?>
-                </select>
-                <br>
-                <input type="submit" value="submit" name="submit">
-            </form>
-            <br>
-        </body>
 
 </html>

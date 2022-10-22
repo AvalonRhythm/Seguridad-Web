@@ -1,7 +1,7 @@
 <?php
 require_once("php/BDConnection.php");
 extract($_POST);
-if(isset($save)){
+if(isset($aniadir)){
 $inputData = [
 'nombre' => validate($nombre) ?? "",
 'especie'   => validate($especie) ?? "",
@@ -9,7 +9,7 @@ $inputData = [
 'edad'   => validate($edad) ?? "",
 'sexo'  => validate($sexo) ?? "",
 'descripcion'     => validate($descripcion) ?? "",
-#'subidopor'    => validate($user)?? ""
+###'subidopor'    => validate($useradd)?? ""
 ];
 $tableName= "animales";
 $db = $conexion;

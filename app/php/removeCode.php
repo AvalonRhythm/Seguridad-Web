@@ -9,7 +9,7 @@
   
     // The following code checks if the submit button is clicked
     // and inserts the data in the database accordingly
-    if(isset($_POST['submit']))
+    if(isset($adoptar))
     {
         // Store the Product name in a "name" variable
         echo "sale algo?";
