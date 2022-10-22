@@ -234,13 +234,13 @@ include("php/editAnimalCode.php");
                             // use a while loop to fetch data
                             // from the $all_categories variable
                             // and individually display as an option
-                            while ($category = mysqli_fetch_array(
-                                    $all_categories,MYSQLI_ASSOC)):;
+                            while ($categoria = mysqli_fetch_array(
+                                    $all_categorias,MYSQLI_ASSOC)):;
                         ?>
-                            <option value="<?php echo $category['id'];
+                            <option value="<?php echo $categoria['id'];
                                 // The value we usually set is the primary key
                             ?>">
-                                <?php echo $category['nombre'];
+                                <?php echo $categoria['nombre'];
                                     // To show the category name to the user
                                 ?>
                             </option>
@@ -305,26 +305,29 @@ include("php/editAnimalCode.php");
         <body>
             <form method="POST">
                 <label>Elige un animal</label>
-                <select name="Animal">
-                    <?php
-                        // use a while loop to fetch data
-                        // from the $all_categories variable
-                        // and individually display as an option
-                        while ($category = mysqli_fetch_array(
-                                $all_categories,MYSQLI_ASSOC)):;
-                    ?>
-                        <option value="<?php echo $category['id'];
-                            // The value we usually set is the primary key
-                        ?>">
-                            <?php echo $category['nombre'];
-                                // To show the category name to the user
-                            ?>
-                        </option>
-                    <?php
-                        endwhile;
-                        // While loop must be terminated
-                    ?>
-                </select>
+                <form method="post" >
+                <div class="form-group">
+                    <select name="Animal">
+                        <?php
+                            // use a while loop to fetch data
+                            // from the $all_categories variable
+                            // and individually display as an option
+                            while ($category = mysqli_fetch_array(
+                                    $all_categories,MYSQLI_ASSOC)):;
+                        ?>
+                            <option value="<?php echo $category['id'];
+                                // The value we usually set is the primary key
+                            ?>">
+                                <?php echo $category['nombre'];
+                                    // To show the category name to the user
+                                ?>
+                            </option>
+                        <?php
+                            endwhile;
+                            // While loop must be terminated
+                        ?>
+                    </select>
+                </div>
                 <br>
                 <input type="submit" value="submit" name="adoptar">
             </form>
