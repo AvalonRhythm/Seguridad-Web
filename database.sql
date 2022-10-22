@@ -19,7 +19,7 @@ CREATE TABLE animales(
   edad VARCHAR(20),
   sexo CHAR(1) NOT NULL,
   descripcion LONGTEXT,
-  subidopor VARCHAR(25) NOT NULL,
+  subidopor VARCHAR(25),
   
   PRIMARY KEY (id),
   FOREIGN KEY (subidopor) REFERENCES usuarios(usuario)

@@ -100,21 +100,20 @@ include("php/editAnimalCode.php");
         <!-- Animal List Start-->
         <header class="header">
             <ul>
-                <li>
-                    <div class= "header">
-                        <em><h1>LISTA DE ADOPCIÓN</h1></em>
-                    </div>  
-                </li>
+                <div class= "header">
+                    <em><h1>LISTA DE ADOPCIÓN</h1></em>
+                </div>  
             </ul>
         </header>
 
         <body>
-                    <div class="container">
+            <div class="container">
             <div class="row">
             <div class="col-sm-20">
                 <div class="table-responsive">
                 <table class="table table-bordered">
                 <thead><tr>
+                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Especie</th>
                     <th>Raza</th>
@@ -128,6 +127,7 @@ include("php/editAnimalCode.php");
                 if(is_array($fetchData)){   
                 foreach($fetchData as $data){
                 ?>
+                <td><?php echo $data['id']??''; ?></td>
                 <td><?php echo $data['nombre']??''; ?></td>
                 <td><?php echo $data['especie']??''; ?></td>
                 <td><?php echo $data['raza']??''; ?></td>
@@ -155,11 +155,9 @@ include("php/editAnimalCode.php");
 
         <header class="header">
             <ul>
-                <li>
-                    <div class= "header">
-                        <em><h1>AÑADIR UN ANIMAL</h1></em>
-                    </div>  
-                </li>
+                <div class= "header">
+                    <em><h1>AÑADIR UN ANIMAL</h1></em>
+                </div>  
             </ul>
         </header>
         
@@ -213,11 +211,9 @@ include("php/editAnimalCode.php");
 
         <header class="header">
             <ul>
-                <li>
-                    <div class= "header">
-                        <em><h1>EDITAR UN ANIMAL</h1></em>
-                    </div>  
-                </li>
+                <div class= "header">
+                    <em><h1>EDITAR UN ANIMAL</h1></em>
+                </div>  
             </ul>
         </header>
 
@@ -227,7 +223,7 @@ include("php/editAnimalCode.php");
             <div class="col-sm-4">
                 <p><?php echo !empty($result)? $result:''; ?></p>
                 <!--=================HTML Form=======================-->
-                <form method="post" >
+                <form method="post">
                 <div class="form-group">
                     <select name="eleccion">
                         <?php
@@ -240,7 +236,7 @@ include("php/editAnimalCode.php");
                             <option value="<?php echo $categoria['id'];
                                 // The value we usually set is the primary key
                             ?>">
-                                <?php echo $categoria['nombre'];
+                                <?php echo $categoria['id']; echo " - "; echo $categoria['nombre'];
                                     // To show the category name to the user
                                 ?>
                             </option>
@@ -249,10 +245,11 @@ include("php/editAnimalCode.php");
                             // While loop must be terminated
                         ?>
                     </select>
+
                 </div>
 
-                    <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nombre" name="nombre2">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre" value="<?php $values['nombre'] ?>" place name="nombre2">
                 </div>
 
                 <div class="form-group">
@@ -268,18 +265,18 @@ include("php/editAnimalCode.php");
                 </div>
                 
                 <div class="form-group">
-                <div class="form-check-inline">
-                    <input type="radio" class="form-check-input" name="sexo2" value="M">Macho
-                </div>
-                <div class="form-check-inline">
-                    <input type="radio" class="form-check-input" name="sexo2" value="F">Hembra
-                </div> 
+                    <div class="form-check-inline">
+                        <input type="radio" class="form-check-input" name="sexo2" value="M">Macho
+                    </div>
+                    <div class="form-check-inline">
+                        <input type="radio" class="form-check-input" name="sexo2" value="F">Hembra
+                    </div> 
                 </div>
                 
                 <div class="form-group">
-                <textarea class="form-control" name="descripcion2" placeholder="Descripción"></textarea>
+                    <textarea class="form-control" name="descripcion2" placeholder="Descripción"></textarea>
                 </div>
-            
+
             <button type="submit"  name="editar" class="btn btn-primary">Editar</button>
             </form>
                 <!--======================== HTML Form============================ -->
@@ -293,11 +290,9 @@ include("php/editAnimalCode.php");
 
         <header class="header">
             <ul>
-                <li>
-                    <div class= "header">
-                        <em><h1>ELIMINAR UN ANIMAL</h1></em>
-                    </div>  
-                </li>
+                <div class= "header">
+                    <em><h1>ELIMINAR UN ANIMAL</h1></em>
+                </div>  
             </ul>
         </header>
 
@@ -318,7 +313,7 @@ include("php/editAnimalCode.php");
                             <option value="<?php echo $category['id'];
                                 // The value we usually set is the primary key
                             ?>">
-                                <?php echo $category['nombre'];
+                                <?php echo $category['id']; echo " - "; echo $category['nombre']
                                     // To show the category name to the user
                                 ?>
                             </option>
@@ -333,7 +328,4 @@ include("php/editAnimalCode.php");
             </form>
             <br>
         </body>
-
-
-
 </html>
