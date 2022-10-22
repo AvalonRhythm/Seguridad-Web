@@ -2,6 +2,7 @@
 include("php/showDatabase.php");
 include("php/addAnimalCode.php");
 include("php/removeCode.php");
+include("php/editAnimalCode.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,7 +111,7 @@ include("php/removeCode.php");
         <body>
                     <div class="container">
             <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-20">
                 <div class="table-responsive">
                 <table class="table table-bordered">
                 <thead><tr>
@@ -121,10 +122,13 @@ include("php/removeCode.php");
                     <th>Sexo</th>
                     <th>Descripción</th>
                     <th>Subido Por</th>
+                    <th>Editar</th>
+                    <th>Adoptar</th>
                 </thead>
                 <tbody>
             <?php
-                if(is_array($fetchData)){      
+                if(is_array($fetchData)){   
+                    $sn=1;   
                 foreach($fetchData as $data){
                 ?>
                 <tr>
@@ -134,7 +138,60 @@ include("php/removeCode.php");
                 <td><?php echo $data['edad']??''; ?></td>
                 <td><?php echo $data['sexo']??''; ?></td>
                 <td><?php echo $data['descripcion']??''; ?></td>
-                <td><?php echo $data['subidopor']??''; ?></td>  
+                <td><?php echo $data['subidopor']??''; ?></td>
+                <td>
+
+            <div class="container">
+            <div class="row">
+            <div id=<?php echo $sn ?>>
+            <div class="col-sm-20">
+                <p><?php echo !empty($result)? $result:''; ?></p>
+                <!--=================HTML Form=======================-->
+                <?php echo $data['nombre']??''; ?>
+                <form method="post" >
+                    <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre" name="nombre<?php echo $sn ?>">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Especie" name="especie<?php echo $sn ?>">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Raza" name="raza<?php echo $sn ?>">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Edad" name="edad<?php echo $sn ?>">
+                </div>
+                
+                <div class="form-group">
+                <div class="form-check-inline">
+                    <input type="radio" class="form-check-input" name="sexo<?php echo $sn ?>" value="M">Macho
+                </div>
+                <div class="form-check-inline">
+                    <input type="radio" class="form-check-input" name="sexo<?php echo $sn ?>" value="F">Hembra
+                </div> 
+                </div>
+                
+                <div class="form-group">
+                <textarea class="form-control" name="descripcion<?php echo $sn ?>" placeholder="Descripción"></textarea>
+                </div>
+            
+            <button type="submit"  name="editar<?php echo $sn ?>" class="btn btn-primary">Editar</button>
+
+            <?php $sn++; ?>
+            </form>
+                <!--======================== HTML Form============================ -->
+            </div>
+            <div class="col-sm-10">
+            
+            </div>
+            </div>
+            </div>
+            </div>
+
+                </td>  
                 </tr>
                 <?php
                 }}else{ ?>
@@ -152,6 +209,9 @@ include("php/removeCode.php");
             </div>
             </div>
         </body>
+
+        
+
 
 
         <header class="header">
@@ -200,7 +260,7 @@ include("php/removeCode.php");
                 <textarea class="form-control" name="descripcion" placeholder="Descripción"></textarea>
                 </div>
             
-            <button type="submit"  name="save" class="btn btn-primary">Save</button>
+            <button type="submit"  name="aniadir" class="btn btn-primary">Save</button>
             </form>
                 <!--======================== HTML Form============================ -->
             </div>
