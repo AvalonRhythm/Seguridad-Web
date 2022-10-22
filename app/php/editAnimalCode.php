@@ -5,7 +5,6 @@ extract($_POST);
 #$e=$editar.''.$sn;
 if(isset($editar1)){
     echo $data['nombre']??'';
-    echo $data['nombre']??'';
 $inputData = [
 'nombre' => validate($nombre) ?? "",
 'especie'   => validate($especie) ?? "",

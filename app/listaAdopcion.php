@@ -128,57 +128,54 @@ include("php/editAnimalCode.php");
                 <tbody>
             <?php
                 if(is_array($fetchData)){   
-                    $sn=1;   
                 foreach($fetchData as $data){
                 ?>
-                <tr>
                 <td><?php echo $data['nombre']??''; ?></td>
                 <td><?php echo $data['especie']??''; ?></td>
                 <td><?php echo $data['raza']??''; ?></td>
                 <td><?php echo $data['edad']??''; ?></td>
                 <td><?php echo $data['sexo']??''; ?></td>
                 <td><?php echo $data['descripcion']??''; ?></td>
-                <td><?php echo $data['subidopor']??''; ?></td>
+                <td><?php echo $data['id']??''; ?></td>
                 <td>
                     <div class="container">
                     <div class="row">
-                    <div id=<?php echo $sn ?>>
+                    <div id=<?php echo $data['id'] ?>>
                     <div class="col-sm-20">
-                        <p><?php echo !empty($result)? $result:''; ?></p>
+                        <?php echo $sn ?>
                         <!--=================HTML Form=======================-->
                         <form method="post" >
                             <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Nombre" name="nombre<?php echo $sn ?>">
+                            <input type="text" class="form-control" placeholder="Nombre" name="nombre<?php echo $data['id'] ?>">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Especie" name="especie<?php echo $sn ?>">
+                            <input type="text" class="form-control" placeholder="Especie" name="especie<?php echo $data['id'] ?>">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Raza" name="raza<?php echo $sn ?>">
+                            <input type="text" class="form-control" placeholder="Raza" name="raza<?php echo $data['id'] ?>">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Edad" name="edad<?php echo $sn ?>">
+                            <input type="text" class="form-control" placeholder="Edad" name="edad<?php echo $data['id'] ?>">
                         </div>
                         
                         <div class="form-group">
                         <div class="form-check-inline">
-                            <input type="radio" class="form-check-input" name="sexo<?php echo $sn ?>" value="M">Macho
+                            <input type="radio" class="form-check-input" name="sexo<?php echo $data['id'] ?>" value="M">Macho
                         </div>
                         <div class="form-check-inline">
-                            <input type="radio" class="form-check-input" name="sexo<?php echo $sn ?>" value="F">Hembra
+                            <input type="radio" class="form-check-input" name="sexo<?php echo $data['id'] ?>" value="F">Hembra
                         </div> 
                         </div>
                         
                         <div class="form-group">
-                        <textarea class="form-control" name="descripcion<?php echo $sn ?>" placeholder="Descripción"></textarea>
+                        <textarea class="form-control" name="descripcion<?php echo $data['id'] ?>" placeholder="Descripción"></textarea>
                         </div>
                     
-                    <button type="submit"  name="editar<?php echo $sn ?>" class="btn btn-primary">Editar</button>
+                    <button type="submit"  name="editar<?php echo $data['id'] ?>" class="btn btn-primary">Editar</button>
 
-                    <?php $sn++; ?>
                     </form>
                         <!--======================== HTML Form============================ -->
                     </div>
@@ -189,9 +186,8 @@ include("php/editAnimalCode.php");
                     </div>
                     </div>
                 </td>  
-                <td><button type="submit"  name="adoptar<?php echo $sn ?>" class="btn btn-primary">Adoptar</button></td>
+                <td><a href='php/removeCode.php?did="<?php echo $data['id']??'' ?>"'>Adoptar</a></td>
                 </tr>
-
                 <?php
                 }}else{ ?>
                 <tr>
@@ -259,7 +255,7 @@ include("php/editAnimalCode.php");
                 <textarea class="form-control" name="descripcion" placeholder="Descripción"></textarea>
                 </div>
             
-            <button type="submit"  name="aniadir" class="btn btn-primary">Save</button>
+            <button type="submit"  name="aniadir" class="btn btn-primary">Añadir</button>
             </form>
                 <!--======================== HTML Form============================ -->
             </div>
@@ -269,6 +265,36 @@ include("php/editAnimalCode.php");
             </div>
             </div>
         </body>
+
+        <body>
+            <form method="POST">
+                <label>Elige un animal</label>
+                <select name="Animal">
+                    <?php
+                        // use a while loop to fetch data
+                        // from the $all_categories variable
+                        // and individually display as an option
+                        while ($category = mysqli_fetch_array(
+                                $all_categories,MYSQLI_ASSOC)):;
+                    ?>
+                        <option value="<?php echo $category['id'];
+                            // The value we usually set is the primary key
+                        ?>">
+                            <?php echo $category['nombre'];
+                                // To show the category name to the user
+                            ?>
+                        </option>
+                    <?php
+                        endwhile;
+                        // While loop must be terminated
+                    ?>
+                </select>
+                <br>
+                <input type="submit" value="submit" name="adoptar">
+            </form>
+            <br>
+        </body>
+
 
 
 </html>
