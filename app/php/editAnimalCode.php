@@ -1,7 +1,7 @@
 <?php
 require_once("php/BDConnection.php");
 require_once("php/addAnimalCode.php");
-extract($_POSTA);
+extract($_POST);
 
 $sql = "SELECT * FROM animales";
 $all_categorias = mysqli_query($conexion,$sql);
