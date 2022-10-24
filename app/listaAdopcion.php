@@ -107,8 +107,9 @@ include("php/editAnimalCode.php");
         </header>
 
         <body>
+            <p><?php echo !empty($result)? $result:''; ?></p>
             <div class="container">
-            <div class="row">
+            <div class="for_div">
             <div class="col-sm-20">
                 <div class="table-responsive">
                 <table class="table table-bordered">
@@ -162,8 +163,8 @@ include("php/editAnimalCode.php");
         </header>
         
         <body>
-            <div class="container">
-            <div class="row">
+            <div class="for_div">
+            <div class="info_div">
             <div class="col-sm-4">
                 <p><?php echo !empty($result)? $result:''; ?></p>
                 <!--=================HTML Form=======================-->
@@ -197,7 +198,8 @@ include("php/editAnimalCode.php");
                 <textarea class="form-control" name="descripcion" placeholder="Descripción"></textarea>
                 </div>
             
-            <button type="submit"  name="aniadir" class="btn btn-primary">Añadir</button>
+            <button type="submit"  name="aniadir" class="btn btn-custom">Añadir</button>
+            <p><?php echo !empty($result)? $result:''; ?></p>
             </form>
                 <!--======================== HTML Form============================ -->
             </div>
@@ -217,9 +219,9 @@ include("php/editAnimalCode.php");
             </ul>
         </header>
 
-        <body>
-            <div class="container">
-            <div class="row">
+        <body class="info_div">
+            <div class="for_div">
+            <div class="info_div">
             <div class="col-sm-4">
                 <p><?php echo !empty($result)? $result:''; ?></p>
                 <!--=================HTML Form=======================-->
@@ -249,35 +251,36 @@ include("php/editAnimalCode.php");
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nombre" value="<?php $values['nombre'] ?>" place name="nombre2">
+                    <input type="text" class="form-control" placeholder="Nombre" name="nombre2" required>
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Especie" name="especie2">
+                    <input type="text" class="form-control" placeholder="Especie" name="especie2" required>
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Raza" name="raza2">
+                    <input type="text" class="form-control" placeholder="Raza" name="raza2" required>
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Edad" name="edad2">
+                    <input type="text" class="form-control" placeholder="Edad" name="edad2" required>
                 </div>
                 
                 <div class="form-group">
                     <div class="form-check-inline">
-                        <input type="radio" class="form-check-input" name="sexo2" value="M">Macho
+                        <input type="radio" class="form-check-input" name="sexo2" value="M" required>Macho
                     </div>
                     <div class="form-check-inline">
-                        <input type="radio" class="form-check-input" name="sexo2" value="F">Hembra
+                        <input type="radio" class="form-check-input" name="sexo2" value="F" required>Hembra
                     </div> 
                 </div>
                 
                 <div class="form-group">
-                    <textarea class="form-control" name="descripcion2" placeholder="Descripción"></textarea>
+                    <textarea class="form-control" name="descripcion2" placeholder="Descripción" required></textarea>
                 </div>
 
-            <button type="submit"  name="editar" class="btn btn-primary">Editar</button>
+            <button type="submit"  name="editar" class="btn btn-custom">Editar</button>
+            <p><?php echo !empty($result)? $result:''; ?></p>
             </form>
                 <!--======================== HTML Form============================ -->
             </div>
@@ -297,11 +300,12 @@ include("php/editAnimalCode.php");
         </header>
 
 
-        <body>
+        <body class="info_div">
             <form method="POST">
-                <label>Elige un animal</label>
+            <p><?php echo !empty($result)? $result:''; ?></p>
+                <h2>Elige un animal</h2>
                 <form method="post" >
-                <div class="form-group">
+                <div class="info_div">
                     <select name="Animal">
                         <?php
                             // use a while loop to fetch data
@@ -324,7 +328,7 @@ include("php/editAnimalCode.php");
                     </select>
                 </div>
                 <br>
-                <input type="submit" value="submit" name="adoptar">
+                <input type="submit" value="Adoptar" class="btn btn-custom" name="adoptar">
             </form>
             <br>
         </body>

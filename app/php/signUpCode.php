@@ -18,6 +18,17 @@
     $password_err = "";
     $dni_err = "";
     
+    function dniValido($dni){
+        $dni = str_replace('-', '', $dni);
+        $letter = substr($dni, -1);
+        $numbers = substr($dni, 0, -1);
+      
+        if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numbers%23, 1) == $letter && strlen($letter) == 1 && strlen ($numbers) == 8 ){
+          return true;
+        }
+        return false;
+    }
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         // VALIDANDO INPUT DE NOMBRE DE USUARIO
@@ -90,8 +101,10 @@
                     
                     if(mysqli_stmt_num_rows($stmt) == 1){
                         $dni_err = "Este DNI ya está registrado";
-                    }else{
+                    }elseif(dniValido($_POST["dni"])) {
                         $dni = trim($_POST["dni"]);
+                    }else{
+                        $dni_err = "El DNI es incorrecto";
                     }
                 }else{
                     echo "Ups! Algo salió mal, inténtalo mas tarde";
