@@ -5,7 +5,7 @@ En este repositorio se encuentran todos los archivos necesarios para la visualiz
 
 ## Grupo
 - Andrea Vasílica
-- Hugo
+- Hugo Robles
 - Gorka Lombardero
 
 ## Desplegar el proyecto mediante [_docker_](https://www.docker.com/)
@@ -14,7 +14,7 @@ Para instalar _docker_ en Ubuntu, ejecutamos en la terminal:
 ```sh
 sudo apt install docker.io
 ```
-Después necesitaremos también instalar _docker-compose_:
+Después necesitaremo instalar _docker-compose_:
 ```sh
 sudo apt install docker-compose
 ```
