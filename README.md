@@ -20,11 +20,11 @@ sudo apt install docker-compose
 ```
 
 ### Configuración de la web
+#### _Esta parte se explica con mayor detalle y capturas en el PDF contenido en el repositorio._
 Estando situados en el mismo directorio que nuestro _Dockerfile_, abrimos una ventada de comando y ejecutamos:
 ```sh
 sudo docker build -t="web" .
 ```
-
 Ya estamos casi listos para visualizar la web. El próximo paso es ejecutar el siguiente comando:
 ```sh
 sudo docker-compose up
