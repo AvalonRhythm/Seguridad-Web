@@ -1,16 +1,31 @@
 # Proyecto SGSSI - Despliegue Web
-## _Entrega 1_
+## _Entrega 1 - Introducción_
 
-En este repositorio se encuentran todos los archivos necesarios para
+En este repositorio se encuentran todos los archivos necesarios para la visualización de una aplicación web desarrollada mediante los lenguajes de programación vistos en clase (HTML, CSS, JavaScript y PHP).
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨
+## Grupo
+- Andrea Vasílica
+- Hugo
+- Gorka Lombardero
 
-## Features
+## Desplegar el proyecto mediante [_docker_](https://www.docker.com/)
+### Instalar _docker_
+Para instalar _docker_ en Ubuntu, ejecutamos en la terminal:
+```sh
+sudo apt install docker.io
+```
+Después necesitaremos también instalar _docker-compose_:
+```sh
+sudo apt install docker-compose
+```
 
-- Import a HTML file and watch it magically convert to Markdown
-- Drag and drop images (requires your Dropbox account be linked)
-- Import and save files from GitHub, Dropbox, Google Drive and One Drive
-- Drag and drop markdown and HTML files into Dillinger
-- Export documents as Markdown, HTML and PDF
+### Configuración de la web
+Estando situados en el mismo directorio que nuestro _Dockerfile_, abrimos una ventada de comando y ejecutamos:
+```sh
+sudo docker build -t="web" .
+```
+
+Ya estamos casi listos para visualizar la web. El próximo paso es ejecutar el siguiente comando:
+```sh
+sudo docker-compose
+```
