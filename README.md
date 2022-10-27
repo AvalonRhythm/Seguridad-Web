@@ -36,7 +36,7 @@ Usuario: admin
 Contraseña: test
 ```
 A continuación debemos ir a "database>Importar". Aquí deberemos selccionar el archivo _database.sql_ contenido en el repositorio, y darle a "Importar", sin modificar ninguna opción más.
-Una vez importada, podemos acceder a  _http://localhost:81_ sin problemas.
+Una vez importada, podemos acceder a  _http://localhost:81_ sin problemas.  Hasta aquí las instrucciones para hacer funcionar la aplicación.
 
 **LA GUÍA CONTINUA EN EL PDF ADJUNTO EN EL REPOSITORIO.**
 
