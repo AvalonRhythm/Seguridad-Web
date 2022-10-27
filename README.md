@@ -38,6 +38,6 @@ Contraseña: test
 A continuación debemos ir a "database>Importar". Aquí deberemos selccionar el archivo _database.sql_ contenido en el repositorio, y darle a "Importar", sin modificar ninguna opción más.
 Una vez importada, podemos acceder a  _http://localhost:81_ sin problemas.
 
-*LA GUÍA CONTINUA EN EL PDF ADJUNTO EN EL REPOSITORIO.*
+**LA GUÍA CONTINUA EN EL PDF ADJUNTO EN EL REPOSITORIO.**
 
 Para cerrar la ejecución de la aplicación, simplemente debemos pulsar CNTRL+C en la terminal que la ejecuta.
