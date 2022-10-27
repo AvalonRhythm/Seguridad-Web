@@ -29,5 +29,11 @@ Ya estamos casi listos para visualizar la web. El próximo paso es ejecutar el s
 ```sh
 sudo docker-compose up
 ```
-Ahora, si accedemos a _http://localhost:81_, deberíamos poder visualizar la página web.
+Ahora, si accedemos a _http://localhost:81_, obtendremos un error dado que no hemos importado aún la base de datos.  
+Por eso, lo primero será acceder a _http://localhost:8890_, donde iniciaremos sesión con los siguientes datos:
+```sh
+Usuario: admin
+Contraseña: test
+```
+A continuación debemos ir a "database>Importar". Aquí deberemos selccionar el archivo _database.sql_ contenido en el repositorio, y darle a "Importar", sin modificar ninguna opción más.
 Para cerrar la ejecución de la aplicación, simplemente debemos pulsar CNTRL+C en la terminal que la ejecuta.
