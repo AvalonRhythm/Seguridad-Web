@@ -27,5 +27,7 @@ sudo docker build -t="web" .
 
 Ya estamos casi listos para visualizar la web. El próximo paso es ejecutar el siguiente comando:
 ```sh
-sudo docker-compose
+sudo docker-compose up
 ```
+Ahora, si accedemos a _http://localhost:81_, deberíamos poder visualizar la página web.
+Para cerrar la ejecución de la aplicación, simplemente debemos pulsar CNTRL+X en la terminal que la ejecuta.
