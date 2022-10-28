@@ -4,7 +4,7 @@
 En este repositorio se encuentran todos los archivos necesarios para la visualización de una aplicación web desarrollada mediante los lenguajes de programación vistos en clase (HTML, CSS, JavaScript y PHP).
 
 ## Grupo
-- Andrea Vasílica
+- Andreea Vasílica
 - Hugo Robles
 - Gorka Lombardero
 
