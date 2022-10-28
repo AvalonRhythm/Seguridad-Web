@@ -3,7 +3,7 @@ include("php/BDConnection.php");
 
 $db= $conexion;
 $tableName="animales";
-$columns= ['id', 'nombre', 'especie','raza','edad','sexo', 'descripcion','subidopor'];
+$columns= ['id', 'nombre', 'especie','raza','edad','sexo', 'descripcion'];
 $fetchData = fetch_data($db, $tableName, $columns);
 
 function fetch_data($db, $tableName, $columns){

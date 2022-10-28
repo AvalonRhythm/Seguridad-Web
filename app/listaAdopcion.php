@@ -121,7 +121,6 @@ include("php/editAnimalCode.php");
                     <th>Edad</th>
                     <th>Sexo</th>
                     <th>Descripción</th>
-                    <th>Subido Por</th>
                 </thead>
                 <tbody>
             <?php
@@ -135,7 +134,6 @@ include("php/editAnimalCode.php");
                 <td><?php echo $data['edad']??''; ?></td>
                 <td><?php echo $data['sexo']??''; ?></td>
                 <td><?php echo $data['descripcion']??''; ?></td>
-                <td><?php echo $data['subidopor']??''; ?></td>
                 </tr>
                 <?php
                 }}else{ ?>
