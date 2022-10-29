@@ -1,8 +1,9 @@
 # Proyecto SGSSI - Despliegue Web
 ## _Entrega 1 - Introducción_
 
-En este repositorio se encuentran todos los archivos necesarios para la visualización de una aplicación web desarrollada mediante los lenguajes de programación vistos en clase (HTML, CSS, JavaScript y PHP).
+En este repositorio se encuentran todos los archivos necesarios para la visualización de una aplicación web desarrollada mediante los lenguajes de programación vistos en clase (HTML, CSS, JavaScript y PHP).\
 
+La plantilla para la web ha sido obtenida de la siguiente [página](https://htmlcodex.com/free-charity-website-template).
 ## Grupo
 - Andreea Vasílica
 - Hugo Robles
