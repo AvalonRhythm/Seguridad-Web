@@ -1,8 +1,9 @@
 # Proyecto SGSSI - Despliegue Web
 ## _Entrega 1 - Introducción_
 
-En este repositorio se encuentran todos los archivos necesarios para la visualización de una aplicación web desarrollada mediante los lenguajes de programación vistos en clase (HTML, CSS, JavaScript y PHP).
+En este repositorio se encuentran todos los archivos necesarios para la visualización de una aplicación web desarrollada mediante los lenguajes de programación vistos en clase (HTML, CSS, JavaScript y PHP).\
 
+La plantilla para la web ha sido obtenida de la siguiente [página](https://htmlcodex.com/free-charity-website-template).
 ## Grupo
 - Andreea Vasílica
 - Hugo Robles
@@ -32,8 +33,8 @@ sudo docker-compose up
 Ahora, si accedemos a _http://localhost:81_, obtendremos un error dado que no hemos importado aún la base de datos.  
 Por eso, lo primero será acceder a _http://localhost:8890_, donde iniciaremos sesión con los siguientes datos:
 ```sh
-Usuario: admin
-Contraseña: test
+Usuario: sudo
+Contraseña: seguridad
 ```
 A continuación debemos ir a "database>Importar". Aquí deberemos selccionar el archivo _database.sql_ contenido en el repositorio, y darle a "Importar", sin modificar ninguna opción más.
 Una vez importada, podemos acceder a  _http://localhost:81_ sin problemas.  Hasta aquí las instrucciones para hacer funcionar la aplicación.
