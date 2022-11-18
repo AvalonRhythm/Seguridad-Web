@@ -1,6 +1,6 @@
 (function ($) {
     "use strict";
-    
+
     // loader
     var loader = function () {
         setTimeout(function () {
@@ -10,6 +10,8 @@
         }, 1);
     };
     loader();
+
+
     
     // Back to top button
     $(window).scroll(function () {

@@ -29,7 +29,7 @@
         return false;
     }
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if($_SERVER["REQUEST_METHOD"] == "POST"){			
         
         // VALIDANDO INPUT DE NOMBRE DE USUARIO
         if(empty(trim($_POST["username"]))){
@@ -112,14 +112,23 @@
             }
         }
         
-        
+        // Given password
+
+
         // VALIDANDO CONTRASEÑA
-        if(empty(trim($_POST["password"]))){
+
+        $uppercase = preg_match('@[A-Z]@', $_POST["password"]);
+        $lowercase = preg_match('@[a-z]@', $_POST["password"]);
+        $number    = preg_match('@[0-9]@', $_POST["password"]);
+        $specialChars = preg_match('@[^\w]@', $password);
+
+
+        if(empty($_POST["password"])){
             $password_err = "Por favor, ingrese una contraseña";
-        }elseif(strlen(trim($_POST["password"])) < 4){
-            $password_err = "La contraseña debe de tener al menos 4 caracteres";
+        }elseif(!$uppercase || !$lowercase || !$number || $specialChars || strlen($_POST["password"]) < 8){
+            $password_err = "Por favor, ingrese una contraseña válida.";
         } else{
-            $password = trim($_POST["password"]);
+            $password = $_POST["password"];
         }
         
 
