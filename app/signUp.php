@@ -151,6 +151,7 @@
                     number.classList.add("invalid");
                 }
                 
+                
                 // Validate special chars
                 var specialCharacters = /[!@#\$%\^\&*\)\(+=._-]+$/g;
                 if(myInput.value.match(specialCharacters)) {  

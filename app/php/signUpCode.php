@@ -1,5 +1,4 @@
 <?php
-    
     // Incluir archivo de conexion a la base de datos
     include_once "php/BDConnection.php";
     
