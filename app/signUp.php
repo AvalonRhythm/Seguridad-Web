@@ -153,7 +153,7 @@
                 
                 
                 // Validate special chars
-                var specialCharacters = /[!@#\$%\^\&*\)\(+=._-]+$/g;
+                var specialCharacters = /[^\w]/g;
                 if(myInput.value.match(specialCharacters)) {  
                     special.classList.remove("invalid");
                     special.classList.add("valid");

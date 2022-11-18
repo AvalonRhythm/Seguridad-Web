@@ -1,6 +1,6 @@
 <?php
 // Incluir archivo de conexion a la base de datos
-include_once "php/BDConnection.php";
+include_once ("php/BDConnection.php");
 
 // Definir variable e inicializar con valores vacio
 $username = "";
@@ -120,12 +120,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $uppercase = preg_match('@[A-Z]@', $_POST["password"]);
     $lowercase = preg_match('@[a-z]@', $_POST["password"]);
     $number    = preg_match('@[0-9]@', $_POST["password"]);
-    $specialChars = preg_match('@[^\w]@', $password);
+    $specialChars = preg_match('@[^\w]@', $_POST["password"]);
 
 
     if (empty($_POST["password"])) {
         $password_err = "Por favor, ingrese una contraseña";
-    } elseif (!$uppercase || !$lowercase || !$number || $specialChars || strlen($_POST["password"]) < 8) {
+    } elseif (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($_POST["password"]) < 8) {
         $password_err = "Por favor, ingrese una contraseña válida.";
     } else {
         $password = $_POST["password"];
@@ -143,13 +143,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // ESTABLECIENDO PARAMETRO
             $param_username = $username;
-            #$param_password = $password;
+            $param_password = $password;
             $param_name = trim($_POST["name"]);
             $param_DNI = $dni;
             $param_telefono = intval(trim($_POST["phone"]));
             $param_fechaNac = date("Y-m-d", strtotime(trim($_POST["date"])));
             $param_email = $email;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // ENCRIPTANDO CONTRASEÑA
+            //$param_password = password_hash($password, PASSWORD_DEFAULT); // ENCRIPTANDO CONTRASEÑA
 
 
             if (mysqli_stmt_execute($stmt)) {
