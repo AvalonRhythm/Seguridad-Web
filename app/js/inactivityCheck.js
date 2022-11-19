@@ -1,5 +1,5 @@
 function inactivity() {
-    var time;
+    var time; 
     window.onmousemove = resetTimer;    // Movimiento del ratón
     window.onclick = resetTimer;        // Clicks
     window.onscroll = resetTimer;       // Moverse con las flechas del teclado

@@ -414,6 +414,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <script src="js/main.js"></script>
 
         <!-- Security Javascript -->
-        <script src = "js/inactivityCheck.js"></script>
+        <script src = "js/inactivityCheck.js"></script> 
     </body>
 </html>

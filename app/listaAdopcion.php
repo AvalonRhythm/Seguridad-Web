@@ -331,6 +331,6 @@ include("php/editAnimalCode.php");
             <br>
         
             <!-- Security Javascript -->
-            <script src = "js/inactivityCheck.js"></script>
+            <script src = "js/inactivityCheck.js"></script> 
         </body>
 </html>
