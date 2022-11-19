@@ -329,5 +329,8 @@ include("php/editAnimalCode.php");
                 <input type="submit" value="Adoptar" class="btn btn-custom" name="adoptar">
             </form>
             <br>
+        
+            <!-- Security Javascript -->
+            <script src = "js/inactivityCheck.js"></script>
         </body>
 </html>
