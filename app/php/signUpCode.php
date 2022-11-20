@@ -143,13 +143,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // ESTABLECIENDO PARAMETRO
             $param_username = $username;
-            $param_password = $password;
+            //$param_password = $password;
             $param_name = trim($_POST["name"]);
             $param_DNI = $dni;
             $param_telefono = intval(trim($_POST["phone"]));
             $param_fechaNac = date("Y-m-d", strtotime(trim($_POST["date"])));
             $param_email = $email;
-            //$param_password = password_hash($password, PASSWORD_DEFAULT); // ENCRIPTANDO CONTRASEÑA
+            $param_password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 10, 'salt' => random_bytes(22)]); // ENCRIPTANDO CONTRASEÑA
 
 
             if (mysqli_stmt_execute($stmt)) {

@@ -1,6 +1,8 @@
+SET time_zone = "+01:00";
+
 CREATE TABLE usuarios(
   usuario VARCHAR(25) NOT NULL,
-  contrasenia VARCHAR(50) NOT NULL,
+  contrasenia VARCHAR(1000),
   nombreapellidos VARCHAR (100),
   DNI VARCHAR(10),
   telefono INT(9),
@@ -9,7 +11,6 @@ CREATE TABLE usuarios(
 
   PRIMARY KEY (usuario)
 );
-
 
 CREATE TABLE animales(
   id INT NOT NULL AUTO_INCREMENT,
@@ -21,4 +22,13 @@ CREATE TABLE animales(
   descripcion LONGTEXT,
 
   PRIMARY KEY (id)
+);
+
+CREATE TABLE log(
+  id INT NOT NULL AUTO_INCREMENT,
+  usuario VARCHAR(25) NOT NULL,
+  iniciocorrecto VARCHAR(2) NOT NULL,
+  fechahora DATETIME NOT NULL,
+
+  PRIMARY KEY(id)
 );
